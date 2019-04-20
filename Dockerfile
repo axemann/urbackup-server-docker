@@ -1,6 +1,8 @@
 FROM debian:stretch
 MAINTAINER Martin Raiber <martin@urbackup.org>
 
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y gnupg &&\
     echo 'deb http://download.opensuse.org/repositories/home:/uroni/Debian_9.0/ /' > /etc/apt/sources.list.d/urbackup-server.list &&\
     apt-key adv --fetch-keys http://download.opensuse.org/repositories/home:/uroni/Debian_9.0/Release.key &&\
